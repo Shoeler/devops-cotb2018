@@ -3,6 +3,26 @@ resource "azurerm_resource_group" "k8s" {
   location = "${var.location}"
 }
 
+data "azurerm_resource_group" "k8s_MC" {
+  name = "MC_${azurerm_resource_group.k8s.name}_${azurerm_kubernetes_cluster.k8scluster.name}_${var.location}"
+}
+
+resource "azurerm_public_ip" "app_ip" {
+  name     = "cotb-app-pubip"
+  location = "${var.location}"
+  domain_name_label = "cotb-app"
+  resource_group_name = "${data.azurerm_resource_group.k8s_MC.name}"
+  public_ip_address_allocation = "static"
+}
+
+resource "azurerm_public_ip" "jenkins_ip" {
+  name     = "cotb_pubip"
+  location = "${var.location}"
+  domain_name_label = "cotb-jenkins"
+  resource_group_name = "${data.azurerm_resource_group.k8s_MC.name}"
+  public_ip_address_allocation = "static"
+}
+
 resource "azurerm_container_registry" "cotbregistry" {
   name                = "cotbregistry"
   resource_group_name = "${azurerm_resource_group.k8s.name}"
@@ -26,7 +46,7 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
 
   agent_pool_profile = {
     name            = "agents"
-    count           = "1"
+    count           = "2"
     vm_size         = "Standard_DS1"
     os_disk_size_gb = "30"
   }
