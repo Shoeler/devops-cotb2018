@@ -12,9 +12,9 @@ resource "kubernetes_namespace" "cotb-app" {
     }
 
     labels {
-      mylabel = "cotb-app"
+      mylabel = "test"
     }
 
-    name = "cotb-app"
+    name = "test"
   }
 }
