@@ -4,6 +4,13 @@
 resource_group = 'dummy-resourcegroup'
 blob = 'cotbsamplestorage'
 
+# Fix a possible bug where it states undefined method `Microsoft`
+class Inspec::Resources::AzureResourceGroup
+  def Microsoft
+    nil
+  end
+end
+
 control "Resource Group" do
   impact 1.0
   title resource_group
@@ -11,7 +18,7 @@ control "Resource Group" do
     its('vm_count') { should eq 0 }
     its('provisioning_state') { should eq 'Succeeded' }
     its('location') { should eq 'eastus' }
-    its('total') { should eq 2 }
+    its('total') { should eq 1 }
   end
 end
 
