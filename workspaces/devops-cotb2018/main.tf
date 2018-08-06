@@ -30,8 +30,6 @@ resource "azurerm_container_registry" "cotbregistry" {
   admin_enabled       = true
   sku                 = "Basic"
 
-  # storage_account_id  = "${azurerm_storage_account.cotb_acr_sa.id}"
-
   tags {
     environment = "cotb2018"
   }
