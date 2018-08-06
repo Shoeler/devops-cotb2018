@@ -49,8 +49,10 @@ control "Azure Kubernetes Service" do
     end
   end
   describe azure_resource_group(name: kube_mc) do
-    its('total') { should eq 12 }
+    its('total') { should eq 21 }
     its('has_public_ips?') { should eq true }
+    its('public_ip_count') { should eq 2 }
+    its('has_managed_disks?') { should eq true }
     its('provisioning_state') { should eq 'Succeeded' }
     its('location') { should eq location }
   end
