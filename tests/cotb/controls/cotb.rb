@@ -6,8 +6,6 @@ registry = params['registry']
 kubernetes = params['kubernetes']
 kube_mc = "MC_#{resource_group}_#{kubernetes}_#{location}"
 
-puts location
-puts resource_group
 # Validate Resource Group
 # 2 resources (aks and acr), no IPs, no vms
 control 'Resource Group' do
