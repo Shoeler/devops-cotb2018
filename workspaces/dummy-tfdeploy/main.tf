@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "dummy" {
 }
 
 resource "azurerm_storage_account" "sample" {
-  name                     = "cotb-samplestorage"
+  name                     = "cotbsamplestorage"
   resource_group_name      = "${azurerm_resource_group.dummy.name}"
   location                 = "eastus"
   account_tier             = "Standard"
