@@ -14,10 +14,4 @@ pipeline {
             }
         }
     }
-    post {
-        agent { label 'terraform'}
-        always {
-            sh 'cd workspaces/dummy-tfdeploy && terraform init --input=false && terraform destroy --force'
-        }
-    }
 }
