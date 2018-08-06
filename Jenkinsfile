@@ -7,17 +7,5 @@ pipeline {
                 sh 'cd workspaces/dummy-tfdeploy && terraform init --input=false && terraform plan -input=false && terraform apply -input=false -auto-approve'
             }
         }
-        stage('Test') {
-            agent { label 'inspec' }
-            steps {
-                // sh 'inspec exec -t azure://
-            }
-        }
-    }
-    post {
-        agent { label 'terraform'}
-        always {
-            // sh 'cd workspaces/dummy-tfdeploy && terraform init --input=false && terraform destroy --force'
-        }
     }
 }
