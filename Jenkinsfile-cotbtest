@@ -1,0 +1,10 @@
+pipeline {
+    agent { label 'inspec' }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'inspec exec --no-color -t azure:// tests/cotb'
+            }
+        }
+    }
+}

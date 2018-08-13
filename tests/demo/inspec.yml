@@ -1,0 +1,8 @@
+name: demo
+title: COTB Demo deployment
+maintainer: Jonathan Leech-Pepin
+copyright: Jonathan Leech-Pepin
+copyright_email: jonathan.leechpepin+cotb@gmail.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0

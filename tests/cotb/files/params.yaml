@@ -1,0 +1,4 @@
+location: eastus
+resource_group: kubernetes-cotb
+registry: cotbregistry
+kubernetes: cotb_cluster
