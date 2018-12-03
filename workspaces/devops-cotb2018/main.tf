@@ -59,7 +59,7 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
   resource_group_name = "${azurerm_resource_group.k8s.name}"
   location            = "${var.location}"
   dns_prefix          = "cotb-2018"
-  kubernetes_version  = "1.10.6"
+  kubernetes_version  = "1.11.4"
 
   agent_pool_profile = {
     name            = "agents"
