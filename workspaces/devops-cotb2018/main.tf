@@ -63,7 +63,7 @@ resource "azurerm_kubernetes_cluster" "k8scluster" {
 
   agent_pool_profile = {
     name            = "agents"
-    count           = "1"
+    count           = "2"
     vm_size         = "Standard_DS1"
     os_disk_size_gb = "30"
   }
